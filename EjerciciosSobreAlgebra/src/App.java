@@ -495,7 +495,7 @@ public class App {
         escalar = entrada.nextInt();
         
          for(i = 0; i<multiEscalar.length; i++){
-            for(j = 0; j < multiEscalar.length; j++){
+            for(j = 0; j < multiEscalar[i].length; j++){
                 multiplicacion[i][j] = (escalar * multiEscalar[i][j]);
              
             }
@@ -506,7 +506,7 @@ public class App {
          System.out.println("la multiplicacion por el escalar es: ");
         System.out.println("*****************************");
         for(i = 0; i<multiEscalar.length; i++){
-            for(j = 0; j<multiEscalar.length; j++){
+            for(j = 0; j<multiEscalar[i].length; j++){
                 System.out.print(escalar * multiEscalar[i][j] + "\t");
               
             }
