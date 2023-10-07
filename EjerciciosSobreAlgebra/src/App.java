@@ -12,6 +12,7 @@ public class App {
         int cantidadColumnas,  escalar;
         int p = 0, numeroMulti = -1, tamano;
         double calcuDeterminante = 0,matrizInversa;
+        int tamano1, tamano2, tamano3, tamano4;
 
         System.out.println("***Bienvenido al sistema de calculos*** ");
         System.out.println("");
@@ -171,12 +172,11 @@ public class App {
        break;
 
        case 2:
-
-       do{
-        System.out.println("Ingrese la cantidad de filas para la primera matriz: ");
-        cantidadFilas = entrada.nextInt();
+        do{
+        System.out.println("Ingrese el tamaño de la primera matriz: ");
+        tamano1 = entrada.nextInt();
          
-        if(cantidadFilas <= 0){
+        if(tamano1 <= 0){
             System.out.println("No se pueden ingresar valores menores o iguales a cero");
            
             oportunidades--;
@@ -190,31 +190,11 @@ public class App {
         if(oportunidades == 0){
             System.out.println("La cantidad de intentos se ha agotado, **El programa ha finalizado**");
             return;
-        }
-        
-        do{
-            System.out.println("Ingrese la cantidad de columnas para la primera matriz: ");
-            cantidadColumnas = entrada.nextInt();
-            
-             if(cantidadColumnas <= 0){
-            System.out.println("No se pueden ingresar valores menores o iguales a cero");
-           
-            oportunidades--;
-            
-        }else{
-            break;
         }
        
-        }while(oportunidades > 0);
-        
-        if(oportunidades == 0){
-            System.out.println("La cantidad de intentos se ha agotado, **El programa ha finalizado**");
-            return;
-        }
-        
-        int [][] matrizA = new int [cantidadFilas][cantidadColumnas];
-        int [][] matrizB = new int [cantidadFilas] [cantidadColumnas];
-        int[][] suma = new int[cantidadFilas] [cantidadColumnas];
+        int [][] matrizA = new int [tamano1][tamano1];
+        int [][] matrizB = new int [tamano1] [tamano1];
+        int[][] suma = new int[tamano1] [tamano1];
         
         System.out.println("Ingrese los elementos para la primera matriz: ");
         
@@ -222,7 +202,9 @@ public class App {
             for(j = 0; j< matrizA[i].length; j++){
                 System.out.print("arregloA: [" + i + "," + j + "] = ");
                 matrizA[i][j] = entrada.nextInt();
+              
             }
+            
         }
         
         System.out.println("La primera matriz es: ");
@@ -234,11 +216,11 @@ public class App {
         }
         System.out.println("");
         
-         do{
-            System.out.println("Ingrese la misma cantidad de filas que ingreso en la primera matriz, para la segunda matriz: ");
-            cantidadFilas = entrada.nextInt();
+        do{
+            System.out.println("Ingrese el tamaño para la segunda matriz: ");
+            tamano2 = entrada.nextInt();
           
-            if(cantidadFilas <= 0){
+            if(tamano2 <= 0){
                 System.out.println("Debe ingresar la misma cantidad de filas,que en la primera matriz para que se pueda efectuar la suma");
                 oportunidades--;
             }else{
@@ -252,35 +234,20 @@ public class App {
             return;
         }
         
-        do{
-            System.out.println("Ingrese la misma cantidad de columnas que ingreso en la primera matriz, para la segunda matriz: ");
-            cantidadColumnas = entrada.nextInt();
-          
+        if(tamano1 != tamano2 ){
+            System.out.println("la suma no se puede realizar, ya que las matrices deben de ser del mismo orden");
+        }else {
             
-            if(cantidadColumnas <= 0){
-                 System.out.println("Debe ingresar la misma cantidad de columnas,que en la primera matriz para que se pueda efectuar la suma");
-                oportunidades--;
-            }else{
-                break;
-            }
-            
-         
-        }while(oportunidades > 0);
-        if(oportunidades == 0){
-            System.out.println("las oportunidades de han agotado, **el programa ha finalizado**");
-            return;
-        }
-        
-        System.out.println("Ingrese los elementos para la segunda matriz: ");
+           System.out.println("Ingrese los elementos para la segunda matriz: ");
          for( i = 0; i <matrizB.length; i++){
             for(j = 0; j< matrizB[i].length; j++){
                 System.out.print("arregloB: [" + i + "," + j + "] = ");
                 matrizB[i][j] = entrada.nextInt();
               
-            } 
-        }
-         
-          System.out.println("La segunda matriz es: ");
+            }
+            
+        }  
+         System.out.println("La segunda matriz es: ");
         for(i = 0; i < matrizB.length; i++){
             for(j = 0; j <matrizB[i].length; j++){
                 System.out.print(matrizB[i][j] + "\t");
@@ -295,8 +262,7 @@ public class App {
             }
             
         }
-        
-         System.out.println("la suma de las matrices es: ");
+        System.out.println("la suma de las matrices es: ");
         for(i = 0; i<matrizA.length; i++){
             for(j = 0; j<matrizA.length; j++){
                 System.out.print(matrizA[i][j] + matrizB[i][j] + "\t");
@@ -304,8 +270,10 @@ public class App {
             }
             System.out.println("");
         }
-        break;
-        
+         
+        }
+                break;
+      
         case 3:
         do{
             System.out.println("Ingrese la cantidad de filas para la matriz");
@@ -355,12 +323,11 @@ public class App {
         break;
 
         case 4: 
-
         do{
-        System.out.println("Ingrese la cantidad de filas para la primera matriz: ");
-        cantidadFilas = entrada.nextInt();
+        System.out.println("Ingrese el tamaño para la primera matriz: ");
+        tamano3 = entrada.nextInt();
          
-        if(cantidadFilas <= 0){
+        if(tamano3 <= 0){
             System.out.println("No se pueden ingresar valores menores o iguales a cero");
            
             oportunidades--;
@@ -374,58 +341,38 @@ public class App {
         if(oportunidades == 0){
             System.out.println("La cantidad de intentos se ha agotado, **El programa ha finalizado**");
             return;
-        }
-        
-        do{
-            System.out.println("Ingrese la cantidad de columnas para la primera matriz: ");
-            cantidadColumnas = entrada.nextInt();
-            
-             if(cantidadColumnas <= 0){
-            System.out.println("No se pueden ingresar valores menores o iguales a cero");
-           
-            oportunidades--;
-            
-        }else{
-            break;
         }
        
-        }while(oportunidades > 0);
-        
-        if(oportunidades == 0){
-            System.out.println("La cantidad de intentos se ha agotado, **El programa ha finalizado**");
-            return;
-        }
-        
-        int [][] matrizAa = new int [cantidadFilas][cantidadColumnas];
-        int [][] matrizBb = new int [cantidadFilas] [cantidadColumnas];
-        int[][] resta = new int[cantidadFilas] [cantidadColumnas];
+        int [][] matrizA = new int [tamano3][tamano3];
+        int [][] matrizB = new int [tamano3] [tamano3];
+        int[][] resta = new int[tamano3] [tamano3];
         
         System.out.println("Ingrese los elementos para la primera matriz: ");
         
-        for( i = 0; i <matrizAa.length; i++){
-            for(j = 0; j< matrizAa[i].length; j++){
+        for( i = 0; i <matrizA.length; i++){
+            for(j = 0; j< matrizA[i].length; j++){
                 System.out.print("arregloA: [" + i + "," + j + "] = ");
-                matrizAa[i][j] = entrada.nextInt();
+                matrizA[i][j] = entrada.nextInt();
               
             }
             
         }
         
         System.out.println("La primera matriz es: ");
-        for(i = 0; i < matrizAa.length; i++){
-            for(j = 0; j <matrizAa[i].length; j++){
-                System.out.print(matrizAa[i][j] + "\t");
+        for(i = 0; i < matrizA.length; i++){
+            for(j = 0; j <matrizA[i].length; j++){
+                System.out.print(matrizA[i][j] + "\t");
             }
             System.out.println();
         }
         System.out.println("");
         
          do{
-            System.out.println("Ingrese la misma cantidad de filas que ingreso en la primera matriz, para la segunda matriz: ");
-            cantidadFilas = entrada.nextInt();
+            System.out.println("Ingrese el tamaño para la segunda matriz: ");
+            tamano4 = entrada.nextInt();
             
-            if(cantidadFilas <= 0){
-                System.out.println("Debe ingresar la misma cantidad de filas,que en la primera matriz para que se pueda efectuar la suma");
+            if(tamano4 <= 0){
+                System.out.println("No puede ingresar valores menores o iguales a cero");
                 oportunidades--;
             }else{
                 break;
@@ -433,56 +380,51 @@ public class App {
             
         }while(oportunidades > 0);
         if(oportunidades == 0){
-            System.out.println("las oportunidades de han agotado, **el programa ha finalizado**");
+            System.out.println("las oportunidades se han agotado, **el programa ha finalizado**");
             return;
         }
         
-         do{
-            System.out.println("Ingrese la misma cantidad de columnas que ingreso en la primera matriz, para la segunda matriz: ");
-            cantidadColumnas = entrada.nextInt();
-            
-            if(cantidadColumnas <= 0){
-                 System.out.println("Debe ingresar la misma cantidad de columnas,que en la primera matriz para que se pueda efectuar la suma");
-                oportunidades--;
-            }else{
-                break;
-            }
-            
-         
-        }while(oportunidades > 0);
-        if(oportunidades == 0){
-            System.out.println("las oportunidades de han agotado, **el programa ha finalizado**");
-            return;
-        }
-        
-        System.out.println("Ingrese los elementos para la segunda matriz: ");
-         for( i = 0; i <matrizBb.length; i++){
-            for(j = 0; j< matrizBb[i].length; j++){
+         if(tamano3 != tamano4){
+             System.out.println("La suma no se puede realizar ya que las matrices deben de ser del mismo orden");
+         }else{
+          System.out.println("Ingrese los elementos para la segunda matriz: ");
+         for( i = 0; i <matrizB.length; i++){
+            for(j = 0; j< matrizB[i].length; j++){
                 System.out.print("arregloB: [" + i + "," + j + "] = ");
-                matrizBb[i][j] = entrada.nextInt();
+                matrizB[i][j] = entrada.nextInt();
               
             }
             
         }
-        System.out.println("La segunda matriz es: ");
-        for(i = 0; i < matrizBb.length; i++){
-            for(j = 0; j <matrizBb[i].length; j++){
-                System.out.print(matrizBb[i][j] + "\t");
+          System.out.println("La segunda matriz es: ");
+        for(i = 0; i < matrizB.length; i++){
+            for(j = 0; j <matrizB[i].length; j++){
+                System.out.print(matrizB[i][j] + "\t");
             }
             System.out.println();
         }
         System.out.println("");
         
-         System.out.println("la suma de las matrices es: ");
-        for(i = 0; i<matrizAa.length; i++){
-            for(j = 0; j<matrizAa.length; j++){
-                System.out.print(matrizAa[i][j] - matrizBb[i][j] + "\t");
+         for(i = 0; i<matrizA.length; i++){
+            for(j = 0; j < matrizA.length; j++){
+                resta[i][j]= matrizA[i][j] - matrizB[i][j];
+            }
+            
+        }
+         System.out.println("la resta de las matrices es: ");
+        for(i = 0; i<matrizA.length; i++){
+            for(j = 0; j<matrizA.length; j++){
+                System.out.print(matrizA[i][j] - matrizB[i][j] + "\t");
                 System.out.print("");
             }
             System.out.println("");
         }
         
-        break;
+         }
+                break;
+                
+       
+        
 
         case 5:
 
